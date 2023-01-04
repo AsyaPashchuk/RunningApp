@@ -1,16 +1,12 @@
 package com.runningapp.db
 
 import androidx.lifecycle.LiveData
-import androidx.room.Dao
-import androidx.room.Delete
-import androidx.room.Insert
-import androidx.room.OnConflictStrategy.REPLACE
-import androidx.room.Query
+import androidx.room.*
 
 @Dao
 interface RunDAO {
 
-    @Insert(onConflict = REPLACE)
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insertRun(run: Run)
 
     @Delete
@@ -25,7 +21,7 @@ interface RunDAO {
     @Query("SELECT * FROM running_table ORDER BY caloriesBurned DESC")
     fun getAllRunsSortedByCaloriesBurned(): LiveData<List<Run>>
 
-    @Query("SELECT * FROM running_table ORDER BY avgSpeedInKmH DESC")
+    @Query("SELECT * FROM running_table ORDER BY avgSpeedInKMH DESC")
     fun getAllRunsSortedByAvgSpeed(): LiveData<List<Run>>
 
     @Query("SELECT * FROM running_table ORDER BY distanceInMeters DESC")
@@ -35,13 +31,11 @@ interface RunDAO {
     fun getTotalTimeInMillis(): LiveData<Long>
 
     @Query("SELECT SUM(caloriesBurned) FROM running_table")
-    fun getTotalTCaloriesBurned(): LiveData<Int>
+    fun getTotalCaloriesBurned(): LiveData<Int>
 
     @Query("SELECT SUM(distanceInMeters) FROM running_table")
     fun getTotalDistance(): LiveData<Int>
 
-    @Query("SELECT AVG(avgSpeedInKmH) FROM running_table")
+    @Query("SELECT AVG(avgSpeedInKMH) FROM running_table")
     fun getTotalAvgSpeed(): LiveData<Float>
-
-
 }
