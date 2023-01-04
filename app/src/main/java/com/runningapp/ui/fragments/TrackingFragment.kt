@@ -3,7 +3,7 @@ package com.runningapp.ui.fragments
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import com.runningapp.R
-import com.runningapp.ui.MainViewModel
+import com.runningapp.ui.viewmodels.MainViewModel
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
