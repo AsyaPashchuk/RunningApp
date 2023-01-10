@@ -36,17 +36,17 @@ class StatisticsFragment : Fragment(R.layout.fragment_statistics) {
             setDrawLabels(false)
             axisLineColor = Color.WHITE
             textColor = Color.WHITE
-            setDrawGridLines(true)
+            setDrawGridLines(false)
         }
         barChart.axisLeft.apply {
             axisLineColor = Color.WHITE
             textColor = Color.WHITE
-            setDrawGridLines(true)
+            setDrawGridLines(false)
         }
         barChart.axisRight.apply {
             axisLineColor = Color.WHITE
             textColor = Color.WHITE
-            setDrawGridLines(true)
+            setDrawGridLines(false)
         }
         barChart.apply {
             description.text = "Avg Speed Over Time"
